@@ -1,0 +1,110 @@
+@import 'mixin';
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+.lock {
+  position: relative;
+  overflow: hidden;
+  
+  &::before {
+    opacity: 1;
+  }
+}
+
+.main {
+  flex-grow: 1;
+}
+
+.title {
+  position: relative;
+  display: inline-block;
+  font-size: 36px;
+  font-weight: 700;
+
+  &::after {
+    position: absolute;
+    content: "";
+    bottom: 10px;
+    left: 0;
+    width: 100%;
+    height: 7px;
+    background-color: #2d05ad60;
+    border-radius: 5px;
+  }
+}
+
+.burger {
+  display: none;
+  position: relative;
+  z-index: 100;
+
+  @include mq('tablet-2') {
+    display: block;
+  }
+
+  &__btn {
+    display: block;
+    padding: 18px 4px;
+    cursor: pointer;
+    margin-left: 15px;
+  }
+
+  &__style {
+    position: relative;
+    display: block;
+    width: 34px;
+    height: 2px;
+    background-color: var(--main-color);
+
+    &::before,
+    &::after {
+      position: absolute;
+      content: "";
+      height: 2px;
+      right: 0;
+      background-color: var(--main-color);
+      transition: background-color 0.2s, transform 0.2s, top 0.2s, bottom 0.2s, width 0.2s;
+    }
+
+    &::before {
+      width: 70%;
+      top: -11px;
+    }
+
+    &::after {
+      width: 50%;
+      bottom: -11px;
+    }
+  }
+
+  &__line--active {
+    .burger__style {
+      background-color: var(--primary-color);
+      visibility: hidden;
+      
+      &::before {
+        top: 0;
+        width: 100%;
+        visibility: visible;
+        transform: rotateZ(-45deg);
+        background-color: var(--primary-color);
+      }
+
+      &::after {
+        bottom: 0;
+        width: 100%;
+        visibility: visible;
+        transform: rotateZ(45deg);
+        background-color: var(--primary-color);
+      }
+    }
+  }
+}
