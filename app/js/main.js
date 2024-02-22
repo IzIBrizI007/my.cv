@@ -36,7 +36,7 @@ $(function () {
     }
   });
   
-  let overlay = document.querySelectorAll('.profession__overlay, .profession__box, .profession, .about__bg');
+  let overlay = document.querySelectorAll('.profession__overlay, .profession__box, .profession');
 
   letDo();
 
