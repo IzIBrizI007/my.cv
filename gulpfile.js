@@ -4,16 +4,9 @@ const concat       = require('gulp-concat');
 const autoprefixer = require('gulp-autoprefixer');
 const uglify       = require('gulp-uglify');
 const imagemin     = require('gulp-imagemin');
-// const del          = require('del');
+const del          = require('del');
 const browserSync  = require('browser-sync').create();
-// import {src, dest, watch, parallel} from 'gulp';
-// import {scss} from 'gulp-sass';
-// import {concat} from 'gulp-concat';
-// import {autoprefixer} from 'gulp-autoprefixer';
-// import {uglify} from 'gulp-uglify';
-// import {imagemin} from 'gulp-imagemin';
-// import {browserSync} from 'browser-sync';
-// import {deleteAsync} from 'del';
+
 
 function browsersync() {
   browserSync.init({
@@ -73,7 +66,6 @@ function build() {
 
 function cleanDist() {
   return del('dist')
-  
 }
 
 function watching() {
