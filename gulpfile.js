@@ -57,7 +57,7 @@ function images() {
 
 function build() {
   return src([
-    'app/**/*.html',
+    'app/*.html',
     'app/css/style.min.css',
     'app/js/main.min.js'
   ], {base: 'app'})
@@ -71,7 +71,7 @@ function cleanDist() {
 function watching() {
   watch(['app/scss/**/*.scss'], styles);
   watch(['app/js/**/*.js', '!app/js/main.min.js'], scripts);
-  watch(['app/**/*.html']).on('change', browserSync.reload);
+  watch(['app/*.html']).on('change', browserSync.reload);
 
 }
 
